@@ -1,19 +1,19 @@
 package ru.kourilenko;
 
 
-public class MyArray {
+public class MyArrayList {
 
     private int size;
     private static final int INIT_SIZE = 50;
     private Object[] myarray;
 
-    public MyArray() {
+    public MyArrayList() {
         myarray = new Object[INIT_SIZE];
         size = 0;
     }
 
     public void add(Object object) {
-        if(object==null){
+        if (object == null) {
             throw new RuntimeException("Пытаемся добавить ничего!");
         }
         if (size == myarray.length) {
@@ -29,7 +29,7 @@ public class MyArray {
         if (position < 0 || position > size) {
             throw new IllegalArgumentException("Некорректное значение переменной position");
         }
-        if(object==null){
+        if (object == null) {
             throw new RuntimeException("Пытаемся добавить ничего!");
         }
         if (size == myarray.length) {
@@ -94,35 +94,22 @@ public class MyArray {
             return false;
         }
 
-        if (!(obj instanceof MyArray)) {
+        if (!(obj instanceof MyArrayList)) {
             return false;
         }
 
-        MyArray myArray = (MyArray) obj;
+        MyArrayList myArrayList = (MyArrayList) obj;
 
-        if (this.size != myArray.size) {
+        if (this.size != myArrayList.size) {
             return false;
         }
         for (int i = 0; i < size; i++) {
-            if (!(this.myarray[i].equals(myArray.myarray[i]))) {
+            if (!(this.myarray[i].equals(myArrayList.myarray[i]))) {
                 return false;
             }
         }
 
         return true;
-        /*
-        if (obj instanceof MyArray) {
-            MyArray myArray = (MyArray) obj;
-            if (this.size == myArray.size) {
-                for (int i = 0; i < size; i++) {
-                    if (this.myarray[i].equals(myArray.myarray[i])) {
-                        return true;
-                    }
-                }
-            }
-        }
-*/
+
     }
-
-
 }
