@@ -36,7 +36,7 @@ public class MyArrayListTest {
     }
 
     @Test(expected = IllegalArgumentException.class)
-    public void test1(){
+    public void testAddBigPosition(){
         MyArrayList myArrayList = new MyArrayList();
         Object obj= new Object();
         myArrayList.add(2, obj);
