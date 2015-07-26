@@ -30,5 +30,19 @@ public class Wrapper {
         obj = object;
     }
 
+    @Override
+    public boolean equals(Object obj) {
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
 
+        if (!(obj instanceof Wrapper)) {
+            return false;
+        }
+        Wrapper wrapper = (Wrapper) obj;
+        return this.getObj().equals(wrapper.getObj());
+    }
 }

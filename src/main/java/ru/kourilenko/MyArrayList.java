@@ -1,7 +1,9 @@
 package ru.kourilenko;
 
 
-public class MyArrayList {
+import java.util.List;
+
+public class MyArrayList implements MyList{
 
     private int size;
     private static final int INIT_SIZE = 50;

@@ -1,7 +1,7 @@
 package ru.kourilenko;
 
 
-public class MyLinkedList {
+public class MyLinkedList implements MyList {
 
     private int size = 0;
     Wrapper head = null;
@@ -18,7 +18,7 @@ public class MyLinkedList {
             last.setNext(wrapper);
             wrapper.setPrev(last);
         }
-        size ++;
+        size++;
     }
 
     public void add(int position, Object object) {
@@ -45,7 +45,7 @@ public class MyLinkedList {
                 b.setNext(wrapper);
             }
         }
-        size ++;
+        size++;
     }
 
     public void remove() {
@@ -59,7 +59,7 @@ public class MyLinkedList {
             last.getPrev().setNext(null);
             last.setPrev(null);
         }
-        size --;
+        size--;
     }
 
     public void remove(int position) {
@@ -81,7 +81,7 @@ public class MyLinkedList {
                 a.getNext().setPrev(a.getPrev());
             }
         }
-        size --;
+        size--;
     }
 
     private Wrapper getWrapper(int position) {
@@ -125,18 +125,44 @@ public class MyLinkedList {
         return current;
     }
 
-//    public Wrapper getLastSafe(){
-//        try{
-//            return getLast();
-//        } catch (IllegalStateException e){
-//            return null;
-//        }
-//    }
+/*    public Wrapper getLastSafe(){
+        try{
+            return getLast();
+        } catch (IllegalStateException e){
+            return null;
+        }
+    }*/
 
-    /*@Override
+    @Override
     public boolean equals(Object obj) {
-        return false;
+        if (this == obj) {
+            return true;
+        }
+        if (obj == null) {
+            return false;
+        }
+
+        if (!(obj instanceof MyLinkedList)) {
+            return false;
+        }
+
+        MyLinkedList myLinkedList = (MyLinkedList) obj;
+
+        if (this.size != myLinkedList.size) {
+            return false;
+        }
+        Wrapper a = head;
+        Wrapper b = myLinkedList.head;
+        while (a.getNext() != null && b.getNext() != null) {
+            if (!(a.equals(b))) {
+                return false;
+            } else {
+                a = a.getNext();
+                b = b.getNext();
+            }
+        }
+        return true;
     }
-*/
+
 
 }
